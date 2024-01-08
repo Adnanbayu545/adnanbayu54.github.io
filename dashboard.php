@@ -1,3 +1,29 @@
+<?php
+/* nama server kita */
+$servername = "localhost";
+
+/* nama database kita */
+$database = "ecommerce"; 
+
+/* nama user yang terdaftar pada database (default: root) */
+$username = "root";
+
+/* password yang terdaftar pada database (default : "") */ 
+$password = ""; 
+
+/* membuat koneksi */
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+/* mengecek koneksi */
+if (!$conn) {
+    die("Maaf koneksi anda gagal : " . mysqli_connect_error());
+}else{
+   echo "<h1>Yes! Koneksi Berhasil..</h1>";
+}
+/* menutup koneksi */
+mysqli_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +31,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chef Website</title>
+    <title>BAYU STORE</title>
     <!-- Box Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- Link To CSS -->
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+
 </head>
 
 <body>
@@ -23,6 +51,8 @@
             <li><a href="#about">About</a></li>
             <li><a href="#chefs">Product</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="index.php">Log Out</a></li>           
+
         </ul>
     </header>
     <!-- Home -->
@@ -30,8 +60,8 @@
         <div class="home-text">
             <h3>Lebih Banyak, Lebih Cepat</h3>
             <h1>Selalu Menetes <br />Jangan Pernah Melambat<br />Dengan <span>Nike</span></h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt, et aliquam.</p>
-            <a href="https://api.whatsapp.com/send?phone=6282324563175&text=Saya%20mau%20memesan%20sepatu%20Nike." class="btn" id="send">Hubungi di sini</a>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis rerum minus ut facere quas labore earum sed ad minima. Alias ex dolorem corrupti earum, quos, libero illum, architecto ratione quis repudiandae eum rerum ut veniam vitae. Doloribus similique fugit assumenda vero. Animi dolorem sapiente neque at consequatur impedit beatae possimus!
+            <a href="product/dataproduct.php" class="btn" id="send">Add Produk</a>
         </div>
         <div class="home-img">
             <img src="img/shoes.png" alt="">
@@ -90,47 +120,31 @@
                 <div class="text">
                     <h2>Nike Air Force</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, doloribus.</p>
-                    <a href="#" class="btn">Beli Sekarang</a>
+                    <a href="order.php?product=Produk1" class="btn">Beli Sekarang</a>
                     <span class="menu_price">Rp. 120.000</span>
                 </div>
             </div>
             <div class="chef-box">
                 <img src="img/shoe2.png" alt="">
                 <div class="text">
-                    <h2>Nike Air Force</h2>
+                    <h2>Nike Air Robix</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, doloribus.</p>
-                    <a href="#" class="btn">Beli Sekarang</a>
+                    <a href="order.php?product=Produk2" class="btn">Beli Sekarang</a>
                     <span class="menu_price">Rp. 120.000</span>
                 </div>
             </div>
             <div class="chef-box">
                 <img src="img/shoe3.png" alt="">
                 <div class="text">
-                    <h2>Nike Air Force</h2>
+                    <h2>Nike Air Max</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, doloribus.</p>
-                    <a href="#" class="btn">Beli Sekarang</a>
+                    <a href="order.php?product=Produk3" class="btn">Beli Sekarang</a>
                     <span class="menu_price">Rp. 120.000</span>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Contact -->
-    <section class="contact" id="contact">
-        <div class="heading">
-            <p>Have Any Question?</p>
-            <h2>Contact Us</h2>
-        </div>
-        <div class="contact-form">
-            <form action="">
-                <input type="text" placeholder="Your Name">
-                <input type="email" name="" id="" placeholder="Enter Your Email...">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Write Your Message Here... "></textarea>
-                <!-- <input type="button" value="Send" class="contact-button">
-                 -->
-                 <a href="#home"><input type="button" value="Send" class="contact-button"></a>
-            </form>
-        </div>
-    </section>
+    
     <!-- Copyright -->
     <section class="contact" id="contact">
         <div class="social">
@@ -145,6 +159,9 @@
 
 
     <!-- Link To Js -->
+        <script>
+      feather.replace();
+    </script>
     <script src="main.js"></script>
 </body>
 
